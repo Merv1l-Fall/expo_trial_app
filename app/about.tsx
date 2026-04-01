@@ -1,22 +1,24 @@
 import { Link } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { Colors } from "../constants/colors";
+
+//themed imports
+import ThemedText from "../components/ThemedText";
+import ThemedView from "../components/ThemedView";
 
 const About = () => {
 
-
-
-    
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>About This App</Text>
-            <Text style={styles.content}>
+        <ThemedView style={styles.container}>
+            <ThemedText type="title" style={styles.title}>About This App</ThemedText>
+            <ThemedText type="text" style={styles.content}>
                 This app is designed to help you keep track of your reading list. You can add books you want to read, mark them as read, and organize them into categories.
-            </Text>
+            </ThemedText>
 
             <Link href="/" style={styles.linkButton}>
-                <Text style={{ color: "white", fontWeight: "bold" }}>Back to Home</Text>
+                <ThemedText type="title" >Back to Home</ThemedText>
             </Link>
-        </View>
+        </ThemedView>
     )
 }
 
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
         marginTop: 20,       
         paddingVertical: 10,
         paddingHorizontal: 20,
-        backgroundColor: "#007AFF",
+        backgroundColor: Colors.primary,
         borderRadius: 5,
     }
 });
