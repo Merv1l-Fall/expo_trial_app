@@ -1,19 +1,23 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Logo } from "../assets/logo/Logo";
+import { Link } from "expo-router";
 
 
 const Home = () => {
     return (
         <View style={styles.container}>
-            <Image source={{ uri: "https://via.placeholder.com/100" }} style={styles.image} />
+            
+            <Logo size={100} style={styles.logo} />
             <Text style={styles.title}>The number 1</Text>
             <Text style={styles.subTitle}>Reading List App</Text>
 
-            <Logo size={100} />
+            <Link href="/about" style={styles.linkButton}>
+                <Text style={{ color: "white", fontWeight: "bold" }}>About</Text>
+            </Link>
+            <Link href="/contact" style={styles.linkButton}>
+                <Text style={{ color: "white", fontWeight: "bold" }}>Contact</Text>
+            </Link>
 
-            <View style={styles.card}>
-                <Text>Hello, this is a card</Text>
-            </View>
         </View>
     )
 }
@@ -32,16 +36,15 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 30,
     },
-    card: {
-        backgroundColor: "#e1e0e0",
-        padding: 20,
-        borderRadius: 5,
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    logo: {
+        marginVertical: 20,
     },
-    image: {
-        width: 100,
-        height: 100,
-        marginBottom: 20,
+    linkButton: {
+        marginTop: 20,       
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        backgroundColor: "#007AFF",
+        borderRadius: 5,
     }
 });
 
