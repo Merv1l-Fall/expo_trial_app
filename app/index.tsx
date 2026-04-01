@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, useColorScheme } from "react-native";
 import { Logo } from "../assets/logo/Logo";
 import { Link } from "expo-router";
 import { Colors } from "../constants/colors";
+import ThemedView from "../components/ThemedView";
+import ThemedText from "../components/ThemedText";
 
 
 const Home = () => {
@@ -13,17 +15,14 @@ const Home = () => {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: theme.background,
     },
     title: {
         fontSize: 18,
         fontWeight: "bold",
-        color: theme.title,
     },
     subTitle: {
         marginTop: 10,
         marginBottom: 30,
-        color: theme.text,
     },
     logo: {
         marginVertical: 20,
@@ -38,20 +37,20 @@ const Home = () => {
 });
 
     return (
-        <View style={styles.container}>
-            
+        <ThemedView style={styles.container}>
             <Logo size={100} style={styles.logo} />
-            <Text style={styles.title}>The number 1</Text>
-            <Text style={styles.subTitle}>Reading List App</Text>
+            <ThemedText type="title" style={styles.title}>The Number 1</ThemedText>
+            <ThemedText type="text" style={styles.subTitle}>Reading List App</ThemedText>
+
 
             <Link href="/about" style={styles.linkButton}>
-                <Text style={{ color: "white", fontWeight: "bold" }}>About</Text>
+                <ThemedText type="title" >About</ThemedText>
             </Link>
             <Link href="/contact" style={styles.linkButton}>
-                <Text style={{ color: "white", fontWeight: "bold" }}>Contact</Text>
+                <ThemedText type="title" >Contact</ThemedText>
             </Link>
 
-        </View>
+        </ThemedView>
     )
 }
 
